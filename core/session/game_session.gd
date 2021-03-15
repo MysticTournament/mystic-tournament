@@ -97,8 +97,8 @@ func _on_hero_died(by: BaseController, dead_owner: BaseController) -> void:
 	player_by.get_team().get_statistic().kills += 1
 
 	var player_who: Player = dead_owner.get_player()
-	player_who.get_statistic().kills += 1
-	player_who.get_team().get_statistic().kills += 1
+	player_who.get_statistic().deaths += 1
+	player_who.get_team().get_statistic().deaths += 1
 
 
 func _on_health_modified(delta: int, by: BaseController) -> void:
