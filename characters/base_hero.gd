@@ -49,7 +49,7 @@ func move(delta: float, direction: Vector3, jumping: bool) -> void:
 		if jumping:
 			new_velocity.y = JUMP_IMPULSE
 		else:
-			new_velocity.y = -Parameters.get_gravity()
+			new_velocity.y = -1 # Apply gravity just a little to make checks such as is_on_floor() work
 	else:
 		new_velocity = velocity.linear_interpolate(_motion, Parameters.get_velocity_interpolate_speed() * delta)
 		new_velocity.y = velocity.y - Parameters.get_gravity() * delta
