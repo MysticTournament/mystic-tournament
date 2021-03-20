@@ -160,16 +160,17 @@ height = 9.03547
 depth = 19.7058
 
 [node name="House" type="CSGCombiner" parent="MainCombiner/Platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.3, 0 )
 
 [node name="Walls" type="CSGBox" parent="MainCombiner/Platform/House"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.23, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23, 0 )
 width = 5.87465
 height = 4.0
 depth = 7.72644
 material = ExtResource( 3 )
 
 [node name="IndoorWalls" type="CSGBox" parent="MainCombiner/Platform/House"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.7328, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7328, 0 )
 operation = 2
 width = 4.875
 height = 4.0
@@ -177,25 +178,25 @@ depth = 6.726
 material = ExtResource( 3 )
 
 [node name="Door" type="CSGCylinder" parent="MainCombiner/Platform/House"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -2, 0, 1, -3.25841e-07, 8.91763, 1.28086, 3.40908 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -2, 0, 1, -3.25841e-07, -0.0823698, 1.28086, 3.40908 )
 operation = 2
 sides = 20
 material = ExtResource( 3 )
 
 [node name="Door2" type="CSGCylinder" parent="MainCombiner/Platform/House"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -2, 0, 1, -3.25841e-07, 8.91763, 1.28086, -3.40961 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -2, 0, 1, -3.25841e-07, -0.0823698, 1.28086, -3.40961 )
 operation = 2
 sides = 20
 material = ExtResource( 3 )
 
 [node name="FrontDoor" type="CSGCylinder" parent="MainCombiner/Platform/House"]
-transform = Transform( -1.62921e-07, 1, -3.25841e-07, 0, -1.62921e-07, -2, -1, -1.62921e-07, 5.30863e-14, 6.35252, 1.28086, -0.180185 )
+transform = Transform( -1.62921e-07, 1, -3.25841e-07, 0, -1.62921e-07, -2, -1, -1.62921e-07, 5.30863e-14, -2.64748, 1.28086, -0.180185 )
 operation = 2
 sides = 20
 material = ExtResource( 3 )
 
 [node name="Window" type="CSGBox" parent="MainCombiner/Platform/House"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5099, 1.42912, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5099, 1.42912, 0 )
 operation = 2
 width = 0.974043
 height = 0.75
