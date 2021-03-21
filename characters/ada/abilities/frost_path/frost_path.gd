@@ -21,4 +21,4 @@ func use(caster: BaseHero) -> void:
 	GameSession.map.add_child(plane)
 
 	caster.translation.y += plane.height() + HEIGHT_GAP # Move caster above plane
-	caster.velocity = -caster_mesh.global_transform.basis.z * IMPULSE_POWER
+	caster.velocity = caster_mesh.global_transform.basis.z * IMPULSE_POWER

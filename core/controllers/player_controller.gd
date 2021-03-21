@@ -54,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not character.can_use_ability(i):
 			return
 
-		character.rpc("rotate_smoothly_to", _camera.rotation.y)
+		character.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
 		yield(get_tree().create_timer(character.get_rotation_time()), "timeout")
 		character.rpc("use_ability", i)
 
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	direction.y = 0
 
 	if direction != Vector3.ZERO:
-		character.rpc("rotate_smoothly_to", _camera.rotation.y)
+		character.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
 	character.move(delta, direction.normalized(), Input.is_action_just_pressed("jump"))
 
 
