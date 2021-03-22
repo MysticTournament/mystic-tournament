@@ -82,3 +82,7 @@ func set_character(new_character: BaseHero) -> void:
 	if is_network_master():
 		# warning-ignore:return_value_discarded
 		character.add_child(_camera)
+
+
+func get_look_rotation() -> Vector3:
+	return Vector3(-_camera.rotation.x, _camera.rotation.y - PI, _camera.rotation.z)

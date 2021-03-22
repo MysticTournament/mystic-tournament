@@ -40,6 +40,10 @@ func get_player():
 	return _player
 
 
+func get_look_rotation() -> Vector3:
+	return Vector3.ZERO
+
+
 func _emit_died_signal(by: BaseHero) -> void:
 	emit_signal("died", by.get_controller())
 
