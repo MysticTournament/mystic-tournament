@@ -3,14 +3,14 @@ extends Node
 # TODO: Extend from https://github.com/godotengine/godot/pull/37200
 
 
-# Signals connected to assigned character
+# Signals connected to assigned actor
 signal died(by)
 signal health_modified(delta, by)
 signal ability_changed(idx, ability)
 signal health_changed(value)
 
 var input_enabled: bool = true
-var character: BaseHero setget set_character
+var actor: BaseActor setget set_actor
 
 # TODO 4.0: Use Player type (cyclic dependency)
 var _player
@@ -21,18 +21,18 @@ func _init(player) -> void:
 	_player = player
 
 
-func set_character(new_character: BaseHero) -> void:
-	character = new_character
-	character.set_network_master(get_network_master(), true)
-	character._controller = self
+func set_actor(new_actor: BaseActor) -> void:
+	actor = new_actor
+	actor.set_network_master(get_network_master(), true)
+	actor._controller = self
 	# warning-ignore:return_value_discarded
-	character.connect("died", self, "_emit_died_signal")
+	actor.connect("died", self, "_emit_died_signal")
 	# warning-ignore:return_value_discarded
-	character.connect("health_modified", self, "_emit_health_modified_signal")
+	actor.connect("health_modified", self, "_emit_health_modified_signal")
 	# warning-ignore:return_value_discarded
-	character.connect("ability_changed", self, "_emit_ability_changed_signal")
+	actor.connect("ability_changed", self, "_emit_ability_changed_signal")
 	# warning-ignore:return_value_discarded
-	character.connect("health_changed", self, "_emit_health_changed_signal")
+	actor.connect("health_changed", self, "_emit_health_changed_signal")
 
 
 # TODO 4.0: Use Player return type (cyclic dependency)
@@ -44,11 +44,11 @@ func get_look_rotation() -> Vector3:
 	return Vector3.ZERO
 
 
-func _emit_died_signal(by: BaseHero) -> void:
+func _emit_died_signal(by: BaseActor) -> void:
 	emit_signal("died", by.get_controller())
 
 
-func _emit_health_modified_signal(delta: int, by: BaseHero) -> void:
+func _emit_health_modified_signal(delta: int, by: BaseActor) -> void:
 	emit_signal("health_modified", delta, by.get_controller())
 
 

@@ -1,4 +1,4 @@
-class_name BaseHero
+class_name BaseActor
 extends KinematicBody
 
 
@@ -40,13 +40,13 @@ func _init() -> void:
 	rset_config("global_transform", MultiplayerAPI.RPC_MODE_REMOTE)
 
 
-func move(delta: float, direction: Vector3, jumping: bool) -> void:
+func move(delta: float, direction: Vector3, jump: bool) -> void:
 	_motion = _motion.linear_interpolate(direction * MOVE_SPEED, Parameters.get_motion_interpolate_speed() * delta)
 
 	var new_velocity: Vector3
 	if is_on_floor() and velocity.length() < MOVE_SPEED:
 		new_velocity = _motion
-		if jumping:
+		if jump:
 			new_velocity.y = JUMP_IMPULSE
 		else:
 			new_velocity.y = -1 # Apply gravity just a little to make checks such as is_on_floor() work
@@ -98,7 +98,8 @@ func get_rotation_time() -> float:
 	return _rotation_tween.get_runtime()
 
 
-func modify_health(delta: int, by: BaseHero) -> void:
+# Change the health of the actor to a certain amount
+func modify_health(delta: int, by: BaseActor) -> void:
 	if health <= 0:
 		return
 	_floating_text.show_text(delta)
@@ -110,6 +111,7 @@ func modify_health(delta: int, by: BaseHero) -> void:
 		emit_signal("died", by)
 
 
+# Set the health of the actor to a specific value (will not emit health_modified)
 func set_health(value: int) -> void:
 	health = value
 	emit_signal("health_changed", health)

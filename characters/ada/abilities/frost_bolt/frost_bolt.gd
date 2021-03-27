@@ -3,7 +3,7 @@ extends BaseAbility
 
 const FrostBoltProjectileScene: PackedScene = preload("res://characters/ada/abilities/frost_bolt/frost_bolt_projectile.tscn")
 
-func use(caster: BaseHero) -> void:
+func use(caster: BaseActor) -> void:
 	.use(caster)
 	var projectile: KinematicBody = FrostBoltProjectileScene.instance()
 	projectile.global_transform = caster.get_projectile_spawn_pos().global_transform

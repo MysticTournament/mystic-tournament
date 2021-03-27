@@ -3,7 +3,7 @@ extends KinematicBody
 
 const SPEED: int = 20
 
-var caster: BaseHero
+var caster: BaseActor
 
 
 func _physics_process(delta: float) -> void:

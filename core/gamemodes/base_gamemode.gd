@@ -26,6 +26,6 @@ func _on_session_started() -> void:
 
 
 func _on_hero_died(_by: BaseController, who: BaseController) -> void:
-	var who_character: BaseHero = who.character
+	var who_actor: BaseActor = who.actor
 	# warning-ignore:return_value_discarded
-	GameSession.get_tree().create_timer(1).connect("timeout", who_character, "respawn", [Vector3(0, 5, 0)])
+	GameSession.get_tree().create_timer(1).connect("timeout", who_actor, "respawn", [Vector3(0, 5, 0)])

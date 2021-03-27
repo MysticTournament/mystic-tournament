@@ -1,7 +1,7 @@
 class_name PlayerController
 extends BaseController
-# A PlayerController is the interface between the BaseHero and the human player controlling it.
-# It collect player inputs, sends it to other peers and applies it to the controlled character.
+# A PlayerController is the interface between the BaseActor and the human player controlling it.
+# It collect player inputs, sends it to other peers and applies it to the controlled actor.
 
 
 const ABILITY_ACTIONS = [
@@ -51,12 +51,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not event.is_action_released(ABILITY_ACTIONS[i]):
 			continue
 
-		if not character.can_use_ability(i):
+		if not actor.can_use_ability(i):
 			return
 
-		character.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
-		yield(get_tree().create_timer(character.get_rotation_time()), "timeout")
-		character.rpc("use_ability", i)
+		actor.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
+		yield(get_tree().create_timer(actor.get_rotation_time()), "timeout")
+		actor.rpc("use_ability", i)
 
 
 func _physics_process(delta: float) -> void:
@@ -69,19 +69,19 @@ func _physics_process(delta: float) -> void:
 	direction.y = 0
 
 	if direction != Vector3.ZERO:
-		character.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
-	character.move(delta, direction.normalized(), Input.is_action_just_pressed("jump"))
+		actor.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
+	actor.move(delta, direction.normalized(), Input.is_action_just_pressed("jump"))
 
 
-func set_character(new_character: BaseHero) -> void:
-	if character and is_network_master():
-		character.remove_child(_camera)
+func set_actor(new_actor: BaseActor) -> void:
+	if actor and is_network_master():
+		actor.remove_child(_camera)
 
-	.set_character(new_character)
+	.set_actor(new_actor)
 
 	if is_network_master():
 		# warning-ignore:return_value_discarded
-		character.add_child(_camera)
+		actor.add_child(_camera)
 
 
 func get_look_rotation() -> Vector3:

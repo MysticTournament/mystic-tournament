@@ -6,7 +6,7 @@ signal used
 var _cooldown: AbilityCooldown
 
 
-func use(_caster: BaseHero) -> void:
+func use(_caster: BaseActor) -> void:
 	if _cooldown:
 		_cooldown.start()
 	emit_signal("used")

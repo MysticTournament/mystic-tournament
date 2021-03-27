@@ -12,7 +12,7 @@ func _init() -> void:
 	_cooldown = AbilityCooldown.new(4)
 
 
-func use(caster: BaseHero) -> void:
+func use(caster: BaseActor) -> void:
 	.use(caster)
 	var plane: FrostPathPlane = FrostPathPlaneScene.instance()
 	var caster_mesh: MeshInstance = caster.get_mesh_instance()

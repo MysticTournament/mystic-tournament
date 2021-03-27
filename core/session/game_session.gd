@@ -22,7 +22,7 @@ puppetsync func start_game() -> void:
 		var hero: Ada = AdaScene.instance()
 		hero.set_name("Player" + str(player.get_network_master()))
 		map.add_child(hero)
-		player.get_controller().character = hero
+		player.get_controller().actor = hero
 		hero.translation.y = 2
 	emit_signal("started")
 
@@ -86,7 +86,7 @@ func _on_player_disconnected(id: int) -> void:
 			player.get_team().remove_player(player)
 
 			var controller: BaseController = player.get_controller()
-			controller.character.queue_free()
+			controller.actor.queue_free()
 			controller.queue_free()
 			return
 
