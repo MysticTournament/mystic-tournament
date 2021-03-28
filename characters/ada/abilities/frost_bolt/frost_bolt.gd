@@ -1,7 +1,9 @@
 class_name FrostBolt, "res://characters/ada/abilities/frost_bolt/frost_bolt.png"
 extends BaseAbility
 
+
 const FrostBoltProjectileScene: PackedScene = preload("res://characters/ada/abilities/frost_bolt/frost_bolt_projectile.tscn")
+
 
 func use(caster: BaseActor) -> void:
 	.use(caster)
