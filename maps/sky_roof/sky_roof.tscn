@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://maps/sky_roof/sky_roof.gd" type="Script" id=1]
 [ext_resource path="res://materials/prototype/light_06.tres" type="Material" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://maps/sky_roof/env.tres" type="Environment" id=15]
 [ext_resource path="res://maps/sky_roof/objects/cafe_table/cafe_table.tscn" type="PackedScene" id=16]
 [ext_resource path="res://maps/sky_roof/objects/trash_can/trash_can.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/pickups/berserker_mask/berserker_mask_pickup.tscn" type="PackedScene" id=18]
 
 [node name="TestPlane" type="Spatial"]
 script = ExtResource( 1 )
@@ -140,6 +141,9 @@ transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 8.23143, -0.813669, 0 )
 radius = 6.20235
 sides = 25
 material = ExtResource( 4 )
+
+[node name="BerserkerMaskPickup" parent="MainCombiner/Platform/Platform1" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.325, 0 )
 
 [node name="Box" type="CSGBox" parent="MainCombiner/Platform/Platform1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )

@@ -22,6 +22,8 @@ const JUMP_IMPULSE = 4
 
 sync var max_health: int = 20
 sync var health: int = max_health setget set_health
+var damage_multiplier: float = 1
+var incoming_damage_multiplier: float = 1
 
 var velocity: Vector3
 
@@ -105,6 +107,11 @@ func get_rotation_time() -> float:
 func modify_health(delta: int, by: BaseActor) -> void:
 	if health <= 0:
 		return
+	delta = int(delta * incoming_damage_multiplier)
+	if by:
+		# Apply attacker modifiers
+		if delta < 0:
+			delta = int(delta * by.damage_multiplier)
 	_floating_text.show_text(delta)
 	# TODO 4.0: Remove extra self
 	self.health = health + delta
