@@ -2,7 +2,7 @@ class_name AbilityHUD
 extends TextureRect
 
 
-var ability: BaseAbility setget set_ability
+var ability: Ability setget set_ability
 var action: String setget set_action
 
 onready var _key_label: Label = $KeyLabel
@@ -26,7 +26,7 @@ func set_action(new_action: String) -> void:
 		assert("Unknown event type")
 
 
-func set_ability(new_ability: BaseAbility) -> void:
+func set_ability(new_ability: Ability) -> void:
 	if ability:
 		ability.get_cooldown().disconnect("started", self, "_display_cooldown")
 	ability = new_ability

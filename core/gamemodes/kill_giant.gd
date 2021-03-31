@@ -1,5 +1,5 @@
 class_name KillGiant
-extends BaseGamemode
+extends Gamemode
 
 
 static func name() -> String:

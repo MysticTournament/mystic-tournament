@@ -1,4 +1,4 @@
-extends BaseGamemodeOption
+extends GamemodeOption
 
 
 onready var _kills_count: SpinBox = $SpinBox

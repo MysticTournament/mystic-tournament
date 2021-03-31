@@ -1,4 +1,4 @@
-class_name BaseActor
+class_name Actor
 extends KinematicBody
 
 
@@ -32,7 +32,7 @@ var _mesh_instance: MeshInstance
 var _motion: Vector3
 var _abilities: Array
 var _status_effects: Array
-# TODO 4.0: Use BaseController type (cyclic dependency)
+# TODO 4.0: Use Controller type (cyclic dependency)
 var _controller
 
 onready var _floating_text: FloatingText = $FloatingText
@@ -75,7 +75,7 @@ puppetsync func rotate_smoothly_to(y_radians: float) -> void:
 	_rotation_tween.start()
 
 
-# TODO 4.0: Use BaseAbility type for ability (cyclic dependency)
+# TODO 4.0: Use Ability type for ability (cyclic dependency)
 func set_ability(idx: int, ability) -> void:
 	assert(ability, "Ability cannot be null")
 	assert(_abilities[idx] == null, "Ability cannot be set twice")
@@ -83,7 +83,7 @@ func set_ability(idx: int, ability) -> void:
 	emit_signal("ability_changed", idx, ability)
 
 
-# TODO 4.0: Use BaseAbility type for return type (cyclic dependency)
+# TODO 4.0: Use Ability type for return type (cyclic dependency)
 func get_ability(idx: int):
 	return _abilities[idx]
 
@@ -104,7 +104,7 @@ func get_rotation_time() -> float:
 
 
 # Change the health of the actor to a certain amount
-func modify_health(delta: int, by: BaseActor) -> void:
+func modify_health(delta: int, by: Actor) -> void:
 	if health <= 0:
 		return
 	delta = int(delta * incoming_damage_multiplier)
@@ -143,12 +143,12 @@ func get_mesh_instance() -> MeshInstance:
 	return _mesh_instance
 
 
-# TODO 4.0: Use BaseController return type (cyclic dependency)
+# TODO 4.0: Use Controller return type (cyclic dependency)
 func get_controller():
 	return _controller
 
 
-func apply_status_effect(script: GDScript, caster: BaseActor = null) -> void:
+func apply_status_effect(script: GDScript, caster: Actor = null) -> void:
 	# Check if effect is already exists
 	for effect in _status_effects:
 		if effect.caster == caster and effect is script:

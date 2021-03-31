@@ -1,4 +1,4 @@
-class_name BaseMap
+class_name Map
 extends Spatial
 
 

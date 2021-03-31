@@ -1,5 +1,5 @@
 class_name FrostPath, "res://characters/ada/abilities/frost_path/frost_path.png"
-extends BaseAbility
+extends Ability
 
 
 const FrostPathPlaneScene: PackedScene = preload("res://characters/ada/abilities/frost_path/frost_path_plane.tscn")
@@ -12,7 +12,7 @@ func _init() -> void:
 	_cooldown = TimerRef.new(4)
 
 
-func use(caster: BaseActor) -> void:
+func use(caster: Actor) -> void:
 	.use(caster)
 	var plane: FrostPathPlane = FrostPathPlaneScene.instance()
 	var caster_mesh: MeshInstance = caster.get_mesh_instance()

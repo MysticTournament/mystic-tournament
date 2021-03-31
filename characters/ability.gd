@@ -1,4 +1,4 @@
-class_name BaseAbility
+class_name Ability
 
 
 signal used
@@ -6,7 +6,7 @@ signal used
 var _cooldown: TimerRef
 
 
-func use(_caster: BaseActor) -> void:
+func use(_caster: Actor) -> void:
 	if _cooldown:
 		_cooldown.start()
 	emit_signal("used")

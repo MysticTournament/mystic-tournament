@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://characters/base_actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/ada/ada.gd" type="Script" id=2]
+
 
 
 

@@ -3,7 +3,7 @@ class_name Player
 
 # TODO 4.0: Use Team type (cyclic dependency)
 var _team
-var _controller: BaseController
+var _controller: Controller
 var _statistic := Statistic.new()
 var _id: int
 
@@ -19,7 +19,7 @@ func get_team():
 	return _team
 
 
-func get_controller() -> BaseController:
+func get_controller() -> Controller:
 	return _controller
 
 

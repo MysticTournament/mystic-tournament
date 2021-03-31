@@ -5,7 +5,7 @@ export(GDScript) var status_effect: GDScript
 
 
 func _on_body_entered(node: Node) -> void:
-	var actor := node as BaseActor
+	var actor := node as Actor
 	if actor:
 		queue_free()
 		if status_effect:

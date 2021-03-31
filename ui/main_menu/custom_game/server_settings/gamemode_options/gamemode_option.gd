@@ -1,4 +1,4 @@
-class_name BaseGamemodeOption
+class_name GamemodeOption
 extends HBoxContainer
 
 

@@ -1,4 +1,4 @@
-class_name BaseGamemode
+class_name Gamemode
 
 
 # warning-ignore:unused_signal
@@ -20,12 +20,12 @@ static func additional_settings() -> Array:
 
 func _on_session_started() -> void:
 	for i in GameSession.get_players_count():
-		var controller: BaseController = GameSession.get_player(i).get_controller()
+		var controller: Controller = GameSession.get_player(i).get_controller()
 		# warning-ignore:return_value_discarded
 		controller.connect("died", self, "_on_hero_died", [controller])
 
 
-func _on_hero_died(_by: BaseController, who: BaseController) -> void:
-	var who_actor: BaseActor = who.actor
+func _on_hero_died(_by: Controller, who: Controller) -> void:
+	var who_actor: Actor = who.actor
 	# warning-ignore:return_value_discarded
 	GameSession.get_tree().create_timer(1).connect("timeout", who_actor, "respawn", [Vector3(0, 5, 0)])

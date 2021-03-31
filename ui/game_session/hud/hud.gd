@@ -9,8 +9,8 @@ onready var _hp_bar: ValueBar = $VBox/HBox/HPBar
 
 
 func _ready() -> void:
-	var controller: BaseController = GameSession.get_current_player().get_controller()
-	var hero: BaseActor = controller.actor
+	var controller: Controller = GameSession.get_current_player().get_controller()
+	var hero: Actor = controller.actor
 	for i in _abilities.get_child_count():
 		var ability_hud: AbilityHUD = _abilities.get_child(i)
 		ability_hud.action = PlayerController.ABILITY_ACTIONS[i]

@@ -1,5 +1,5 @@
 class_name Ada
-extends BaseActor
+extends Actor
 
 
 func _ready() -> void:

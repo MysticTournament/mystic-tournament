@@ -1,6 +1,6 @@
 class_name PlayerController
-extends BaseController
-# A PlayerController is the interface between the BaseActor and the human player controlling it.
+extends Controller
+# A PlayerController is the interface between the Actor and the human player controlling it.
 # It collect player inputs, sends it to other peers and applies it to the controlled actor.
 
 
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	actor.move(delta, direction.normalized(), Input.is_action_just_pressed("jump"))
 
 
-func set_actor(new_actor: BaseActor) -> void:
+func set_actor(new_actor: Actor) -> void:
 	if actor and is_network_master():
 		actor.remove_child(_camera)
 

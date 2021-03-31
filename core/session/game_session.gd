@@ -6,8 +6,8 @@ signal about_to_start
 
 const AdaScene: PackedScene = preload("res://characters/ada/ada.tscn")
 
-var map: BaseMap
-var gamemode: BaseGamemode
+var map: Map
+var gamemode: Gamemode
 
 var _teams: Array
 var _players: Array
@@ -50,7 +50,7 @@ func add_player(player: Player) -> void:
 	if player.get_network_master() == get_tree().get_network_unique_id():
 		_current_player = player
 
-	var controller: BaseController = player.get_controller()
+	var controller: Controller = player.get_controller()
 	# warning-ignore:return_value_discarded
 	controller.connect("died", self, "_on_hero_died", [controller])
 	# warning-ignore:return_value_discarded
@@ -85,13 +85,13 @@ func _on_player_disconnected(id: int) -> void:
 			_players.remove(i)
 			player.get_team().remove_player(player)
 
-			var controller: BaseController = player.get_controller()
+			var controller: Controller = player.get_controller()
 			controller.actor.queue_free()
 			controller.queue_free()
 			return
 
 
-func _on_hero_died(by: BaseController, dead_owner: BaseController) -> void:
+func _on_hero_died(by: Controller, dead_owner: Controller) -> void:
 	var player_by: Player = by.get_player()
 	player_by.get_statistic().kills += 1
 	player_by.get_team().get_statistic().kills += 1
@@ -101,7 +101,7 @@ func _on_hero_died(by: BaseController, dead_owner: BaseController) -> void:
 	player_who.get_team().get_statistic().deaths += 1
 
 
-func _on_health_modified(delta: int, by: BaseController) -> void:
+func _on_health_modified(delta: int, by: Controller) -> void:
 	var player_by: Player = by.get_player()
 	if delta < 0:
 		player_by.get_statistic().damage -= delta
