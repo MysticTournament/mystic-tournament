@@ -3,7 +3,7 @@ class_name BaseAbility
 
 signal used
 
-var _cooldown: ExtendedTimer
+var _cooldown: TimerRef
 
 
 func use(_caster: BaseActor) -> void:
@@ -12,5 +12,5 @@ func use(_caster: BaseActor) -> void:
 	emit_signal("used")
 
 
-func get_cooldown() -> ExtendedTimer:
+func get_cooldown() -> TimerRef:
 	return _cooldown

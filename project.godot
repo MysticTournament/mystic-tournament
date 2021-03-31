@@ -89,11 +89,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/main_menu/exit_dialog.gd"
 }, {
-"base": "Timer",
-"class": "ExtendedTimer",
-"language": "GDScript",
-"path": "res://core/extended_timer.gd"
-}, {
 "base": "ColorRect",
 "class": "FadeRect",
 "language": "GDScript",
@@ -215,6 +210,11 @@ _global_script_classes=[ {
 "path": "res://core/session/team.gd"
 }, {
 "base": "Reference",
+"class": "TimerRef",
+"language": "GDScript",
+"path": "res://core/timer_ref.gd"
+}, {
+"base": "Reference",
 "class": "Utils",
 "language": "GDScript",
 "path": "res://core/utils.gd"
@@ -241,7 +241,6 @@ _global_script_class_icons={
 "DirectConnectDialog": "",
 "ErrorDialog": "",
 "ExitDialog": "",
-"ExtendedTimer": "",
 "FadeRect": "",
 "FloatingText": "",
 "FrostBolt": "res://characters/ada/abilities/frost_bolt/frost_bolt.png",
@@ -266,6 +265,7 @@ _global_script_class_icons={
 "Statistic": "",
 "StatusEffect": "",
 "Team": "",
+"TimerRef": "",
 "Utils": "",
 "ValueBar": ""
 }
