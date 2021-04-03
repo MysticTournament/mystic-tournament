@@ -10,7 +10,7 @@
 [ext_resource path="res://materials/prototype/green_09.tres" type="Material" id=8]
 [ext_resource path="res://maps/sky_roof/objects/cafe_chair/cafe_chair.tscn" type="PackedScene" id=9]
 [ext_resource path="res://materials/prototype/dark_03.tres" type="Material" id=10]
-[ext_resource path="res://materials/prototype/light_08.tres" type="Material" id=11]
+[ext_resource path="res://maps/sky_roof/objects/fountain/fountain.tscn" type="PackedScene" id=11]
 [ext_resource path="res://materials/prototype/dark_08.tres" type="Material" id=12]
 [ext_resource path="res://maps/sky_roof/objects/bench/bench.tscn" type="PackedScene" id=13]
 [ext_resource path="res://maps/sky_roof/objects/street_light/street_light.tscn" type="PackedScene" id=14]
@@ -589,32 +589,6 @@ height = 1.0
 depth = 4.0
 material = ExtResource( 2 )
 
-[node name="Fontain" type="CSGCombiner" parent="MainCombiner/Platform3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -2 )
-
-[node name="Basement" type="CSGCombiner" parent="MainCombiner/Platform3/Fontain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2 )
-
-[node name="Cylinder" type="CSGCylinder" parent="MainCombiner/Platform3/Fontain/Basement"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2 )
-radius = 3.0
-sides = 25
-material = ExtResource( 11 )
-
-[node name="Cylinder2" type="CSGCylinder" parent="MainCombiner/Platform3/Fontain/Basement"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -2 )
-operation = 2
-radius = 2.8
-sides = 25
-material = ExtResource( 11 )
-
-[node name="Cylinder" type="CSGCylinder" parent="MainCombiner/Platform3/Fontain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-radius = 0.5
-height = 2.0
-sides = 25
-material = ExtResource( 11 )
-
 [node name="CafeTable" parent="MainCombiner/Platform3" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6 )
 
@@ -626,6 +600,9 @@ transform = Transform( -0.510768, 0, 0.859719, 0, 1, 0, -0.859719, 0, -0.510768,
 
 [node name="CafeChair2" parent="MainCombiner/Platform3" instance=ExtResource( 9 )]
 transform = Transform( 0.976971, 0, -0.213371, 0, 1, 0, 0.213371, 0, 0.976971, -0.573971, 1.48362, 5.74253 )
+
+[node name="Fountain" parent="MainCombiner/Platform3" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.276842, 1.50025, -1.29562 )
 
 [node name="Platform4" type="CSGCombiner" parent="MainCombiner"]
 
