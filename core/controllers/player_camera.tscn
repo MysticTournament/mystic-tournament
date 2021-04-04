@@ -10,4 +10,3 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
 h_offset = 1.0
-current = true

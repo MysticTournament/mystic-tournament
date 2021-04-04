@@ -13,6 +13,9 @@ onready var _camera: Camera = $Camera
 
 
 func _ready() -> void:
+	if is_network_master():
+		_camera.current = true
+	rset_config("rotation", MultiplayerAPI.RPC_MODE_PUPPET)
 	if OS.is_window_focused():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

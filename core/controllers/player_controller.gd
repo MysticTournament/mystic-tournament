@@ -14,7 +14,7 @@ const ABILITY_ACTIONS = [
 
 const PlayerCameraScene: PackedScene = preload("res://core/controllers/player_camera.tscn")
 
-var _camera: PlayerCamera
+var _camera: PlayerCamera = PlayerCameraScene.instance()
 
 var _x_strength: float
 var _z_strength: float
@@ -26,9 +26,8 @@ func _init(player).(player) -> void:
 
 
 func _ready() -> void:
-	if is_network_master():
-		_camera = PlayerCameraScene.instance()
-	else:
+	_camera.set_network_master(get_network_master())
+	if not is_network_master():
 		set_physics_process(false)
 		set_process_unhandled_input(false)
 
@@ -54,6 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not actor.can_use_ability(i):
 			return
 
+		_camera.rset("rotation", _camera.rotation) # Sync rotation over network for correct casting direction
 		actor.rpc("rotate_smoothly_to", _camera.rotation.y - PI)
 		yield(get_tree().create_timer(actor.get_rotation_time()), "timeout")
 		actor.rpc("use_ability", i)
@@ -74,14 +74,13 @@ func _physics_process(delta: float) -> void:
 
 
 func set_actor(new_actor: Actor) -> void:
-	if actor and is_network_master():
+	if actor:
 		actor.remove_child(_camera)
 
 	.set_actor(new_actor)
 
-	if is_network_master():
-		# warning-ignore:return_value_discarded
-		actor.add_child(_camera)
+	# warning-ignore:return_value_discarded
+	actor.add_child(_camera)
 
 
 func get_look_rotation() -> Vector3:
