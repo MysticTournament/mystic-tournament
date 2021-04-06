@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/ada/ada.gd"
 }, {
-"base": "StatusEffect",
-"class": "BerserkerMask",
-"language": "GDScript",
-"path": "res://objects/pickups/berserker_mask/berserker_mask.gd"
-}, {
 "base": "VBoxContainer",
 "class": "Chat",
 "language": "GDScript",
@@ -113,11 +108,6 @@ _global_script_classes=[ {
 "class": "HUD",
 "language": "GDScript",
 "path": "res://ui/game_session/hud/hud.gd"
-}, {
-"base": "StatusEffect",
-"class": "HealingLeaf",
-"language": "GDScript",
-"path": "res://objects/pickups/healing_leaf/healing_leaf.gd"
 }, {
 "base": "Control",
 "class": "IngameMenu",
@@ -234,7 +224,6 @@ _global_script_class_icons={
 "AbilityHUD": "",
 "Actor": "",
 "Ada": "",
-"BerserkerMask": "",
 "Chat": "",
 "ConnectionDialog": "",
 "ControlUtils": "",
@@ -251,7 +240,6 @@ _global_script_class_icons={
 "Gamemode": "",
 "GamemodeOption": "",
 "HUD": "",
-"HealingLeaf": "",
 "IngameMenu": "",
 "KillGiant": "",
 "LobbySlot": "",
