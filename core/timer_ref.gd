@@ -38,3 +38,7 @@ func stop() -> void:
 
 func is_stopped() -> bool:
 	return _timer.is_stopped()
+
+
+func get_time_left() -> float:
+	return _timer.time_left

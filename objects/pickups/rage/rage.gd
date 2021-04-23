@@ -1,3 +1,4 @@
+class_name Rage, "res://objects/pickups/rage/rage.png"
 extends StatusEffect
 
 

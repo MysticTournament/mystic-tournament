@@ -8,6 +8,8 @@ signal died(by)
 signal health_modified(delta, by)
 signal ability_changed(idx, ability)
 signal health_changed(value)
+signal status_effect_added(effect)
+signal status_effect_removed(effect)
 
 var input_enabled: bool = true
 var actor: Actor setget set_actor
@@ -33,6 +35,10 @@ func set_actor(new_actor: Actor) -> void:
 	actor.connect("ability_changed", self, "_emit_ability_changed_signal")
 	# warning-ignore:return_value_discarded
 	actor.connect("health_changed", self, "_emit_health_changed_signal")
+	# warning-ignore:return_value_discarded
+	actor.connect("status_effect_added", self, "_emit_status_effect_added")
+	# warning-ignore:return_value_discarded
+	actor.connect("status_effect_removed", self, "_emit_status_effect_removed")
 
 
 # TODO 4.0: Use Player return type (cyclic dependency)
@@ -58,3 +64,11 @@ func _emit_ability_changed_signal(idx: int, ability: Ability) -> void:
 
 func _emit_health_changed_signal(value: int) -> void:
 	emit_signal("health_changed", value)
+
+
+func _emit_status_effect_added(effect) -> void:
+	emit_signal("status_effect_added", effect)
+
+
+func _emit_status_effect_removed(effect) -> void:
+	emit_signal("status_effect_removed", effect)

@@ -1,3 +1,4 @@
+class_name Healing, "res://objects/pickups/healing/healing.png"
 extends StatusEffect
 
 

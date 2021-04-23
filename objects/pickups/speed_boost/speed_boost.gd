@@ -1,3 +1,4 @@
+class_name SpeedBoost, "res://objects/pickups/speed_boost/speed_boost.png"
 extends StatusEffect
 
 
