@@ -1,0 +1,16 @@
+[server-with-two-clients]
+command=godot-headless --server & godot --connect & godot --connect
+cwd=$(VIM_ROOT)
+save=2
+
+[server-with-one-clients]
+command=godot-headless --server & godot --connect
+cwd=$(VIM_ROOT)
+save=2
+
+[single-game]
+command=godot --single-game
+cwd=$(VIM_ROOT)
+save=2
+
+; vim: filetype=dosini
