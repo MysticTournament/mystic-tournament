@@ -28,9 +28,9 @@ puppetsync func start_game() -> void:
 
 
 func clear() -> void:
-	# Remove all added controllers
-	for child in get_children():
-		child.free()
+	# Remove all controllers
+	for player in _players:
+		player.get_controller().free()
 
 	gamemode = null
 	_current_player = null
